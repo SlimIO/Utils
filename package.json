@@ -4,10 +4,10 @@
   "description": "Slim.IO Utils functions",
   "main": "index.js",
   "scripts": {
-	"test": "npx ava --verbose",
-	"doc": "npx jsdoc -c ./jsdoc.json -r",
-	"coverage": "npx nyc ava",
-	"report": "npx nyc report --reporter=html"
+    "test": "npx ava --verbose",
+    "doc": "npx jsdoc -c ./jsdoc.json -r",
+    "coverage": "npx nyc ava",
+    "report": "npx nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -21,13 +21,11 @@
   "homepage": "https://github.com/SlimIO/Utils#readme",
   "devDependencies": {
     "@escommunity/minami": "^1.0.0",
-    "@slimio/eslint-config": "^1.1.2",
+    "@slimio/eslint-config": "^1.1.7",
     "ava": "^0.25.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.1",
     "jsdoc": "^3.5.5",
-    "nyc": "^11.6.0"
+    "nyc": "^11.9.0"
   },
-  "dependencies": {
-    "@sindresorhus/is": "^0.8.0"
-  }
+  "dependencies": {}
 }
