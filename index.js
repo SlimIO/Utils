@@ -1,3 +1,6 @@
+// Require NodeJS Dependencies
+const { mkdir } = require("fs").promises;
+
 /**
  * @namespace utils
  */
@@ -31,7 +34,37 @@ function taggedString(chaines, ...cles) {
     };
 }
 
+/**
+ * @version 0.3.0
+ *
+ * @exports utils/createDirectory
+ * @method createDirectory
+ * @desc overhead method of fs.mkdir (but will no throw an error if the directory already exist!).
+ * @param {!String} dirPath directory path
+ * @returns {void}
+ *
+ * @throws {TypeError}
+ *
+ * @example
+ * await createDirectory("./debug");
+ */
+async function createDirectory(dirPath) {
+    if (typeof dirPath !== "string") {
+        throw new TypeError("dirPath argument should be typeof string");
+    }
+
+    try {
+        await mkdir(dirPath);
+    }
+    catch (error) {
+        if (error.code !== "EEXIST") {
+            throw error;
+        }
+    }
+}
+
 // Exports all utils functions
 module.exports = {
-    taggedString
+    taggedString,
+    createDirectory
 };
