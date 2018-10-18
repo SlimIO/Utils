@@ -9,6 +9,12 @@
     "coverage": "nyc ava",
     "report": "nyc report --reporter=html"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "nyc": {
     "check-coverage": true,
     "per-file": false,
