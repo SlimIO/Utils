@@ -9,7 +9,7 @@ This package is available in the Node Package Repository and can be easily insta
 $ npm install @slimio/utils
 ```
 
-## Exported Functions
+## API
 
 ### taggedString(chaines: string, ...keys: any[]): Clojure;
 This method is inspired from Tagged Literal (look at the [MDN Documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Litt%C3%A9raux_gabarits))
