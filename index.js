@@ -71,7 +71,7 @@ async function createDirectory(dirPath) {
  *
  * @exports utils/assertEntity
  * @method assertEntity
- * @desc Valid Entity properties
+ * @desc Valid an entity object properties
  * @param {!Object} entity Entity object
  * @returns {void}
  *
@@ -109,7 +109,7 @@ function assertEntity(entity) {
  *
  * @exports utils/assertMIC
  * @method assertMIC
- * @desc Valid Metric Identity Card properties
+ * @desc Valid a Metric Identity Card object properties
  * @param {!Object} mic Metric Identity Card object
  * @returns {void}
  *
@@ -155,7 +155,7 @@ function assertMIC(mic) {
  *
  * @exports utils/assertAlarm
  * @method assertAlarm
- * @desc Valid alarm properties
+ * @desc Valid an alarm object properties
  * @param {!Object} alarm Alarm object
  * @returns {void}
  *
