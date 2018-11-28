@@ -78,7 +78,13 @@ async function createDirectory(dirPath) {
  * @throws {TypeError}
  *
  * @example
- *
+ * const entity = {
+ *     name: "myEntity",
+ *     description: "desc",
+ *     parent: 10,
+ *     descriptors: {}
+ * };
+ * assertEntity(entity);
  */
 function assertEntity(entity) {
     if (!is.plainObject(entity)) {
@@ -110,7 +116,15 @@ function assertEntity(entity) {
  * @throws {TypeError}
  *
  * @example
- *
+ * const MIC = {
+ *     name: "myMIC",
+ *     entityId: 1,
+ *     unit: "unit",
+ *     interval: 10,
+ *     max: 100,
+ *     description: "desc"
+ * };
+ * assertMIC(MIC);
  */
 function assertMIC(mic) {
     if (!is.plainObject(mic)) {
@@ -148,7 +162,13 @@ function assertMIC(mic) {
  * @throws {TypeError}
  *
  * @example
- *
+ * const alarm = {
+ *     message: "message",
+ *     severity: 1,
+ *     entityId: 2,
+ *     correlateKey: "test_corrKey"
+ * };
+ * assertAlarm(alarm);
  */
 function assertAlarm(alarm) {
     if (!is.plainObject(alarm)) {
@@ -180,7 +200,7 @@ function assertAlarm(alarm) {
  * @throws {TypeError}
  *
  * @example
- *
+ * assertCorrelateID("1#test_corrkey");
  */
 function assertCorrelateID(CID) {
     if (!/^[0-9]{1,8}#[a-z_]{1,14}$/.test(CID)) {
