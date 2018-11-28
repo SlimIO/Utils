@@ -71,8 +71,8 @@ async function createDirectory(dirPath) {
  *
  * @exports utils/assertEntity
  * @method assertEntity
- * @desc desc
- * @param {!Object} entity entity
+ * @desc Valid Entity properties
+ * @param {!Object} entity Entity object
  * @returns {void}
  *
  * @throws {TypeError}
@@ -103,8 +103,8 @@ function assertEntity(entity) {
  *
  * @exports utils/assertMIC
  * @method assertMIC
- * @desc desc
- * @param {!Object} mic mic
+ * @desc Valid Metric Identity Card properties
+ * @param {!Object} mic Metric Identity Card object
  * @returns {void}
  *
  * @throws {TypeError}
@@ -141,8 +141,8 @@ function assertMIC(mic) {
  *
  * @exports utils/assertAlarm
  * @method assertAlarm
- * @desc desc
- * @param {!Object} alarm alarm
+ * @desc Valid alarm properties
+ * @param {!Object} alarm Alarm object
  * @returns {void}
  *
  * @throws {TypeError}
@@ -173,8 +173,8 @@ function assertAlarm(alarm) {
  *
  * @exports utils/assertCorrelateID
  * @method assertCorrelateID
- * @desc desc
- * @param {!String} CID cid
+ * @desc Valid a correlateID
+ * @param {!String} CID CorrelateID
  * @returns {void}
  *
  * @throws {TypeError}
