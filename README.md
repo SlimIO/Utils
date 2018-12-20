@@ -1,4 +1,8 @@
 # Utils
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/github/commit-activity)
+![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
+![V1.0](https://img.shields.io/badge/version-0.6.1-blue.svg)
+
 Slim.IO Utils. This package/project is dedicated to the SlimIO Stack (he features are added to this package to allow a better maintainability within several subprojects).
 
 ## Getting Started
