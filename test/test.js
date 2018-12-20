@@ -203,11 +203,11 @@ avaTest("assertCorrelateID() Error", (assert) => {
     const message = "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$";
     assert.throws(() => {
         assertCorrelateID();
-    }, { instanceOf: TypeError, message });
+    }, { instanceOf: Error, message });
 
     assert.throws(() => {
         assertCorrelateID(10);
-    }, { instanceOf: TypeError, message });
+    }, { instanceOf: Error, message });
 });
 
 avaTest("assertCorrelateID()", (assert) => {
