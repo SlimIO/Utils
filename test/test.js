@@ -34,41 +34,37 @@ avaTest("createDirectory", async(assert) => {
 });
 
 avaTest("createDirectory (dirPath should be typeof string)", async(assert) => {
-    const error = await assert.throws(createDirectory(5), TypeError);
-    assert.is(error.message, "dirPath argument should be typeof string");
+    await assert.throwsAsync(createDirectory(5), {
+        instanceOf: TypeError, message: "dirPath argument should be typeof string"
+    });
 });
 
 avaTest("assertEntity() TypeError", (assert) => {
     const name = "myEntity";
 
-    let error = assert.throws(() => {
+    assert.throws(() => {
         assertEntity(10);
-    });
-    assert.is(error.message, "entity must be a plainObject");
+    }, { instanceOf: TypeError, message: "entity must be a plainObject" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertEntity({});
-    });
-    assert.is(error.message, "entity.name property must be typeof <string>");
-    error = assert.throws(() => {
+    }, { instanceOf: TypeError, message: "entity.name property must be typeof <string>" });
+
+    assert.throws(() => {
         assertEntity({ name: 10 });
-    });
-    assert.is(error.message, "entity.name property must be typeof <string>");
+    }, { instanceOf: TypeError, message: "entity.name property must be typeof <string>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertEntity({ name, description: 10 });
-    });
-    assert.is(error.message, "entity.description property must be typeof <string>");
+    }, { instanceOf: TypeError, message: "entity.description property must be typeof <string>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertEntity({ name, parent: "test" });
-    });
-    assert.is(error.message, "entity.parent property must be typeof <number>");
+    }, { instanceOf: TypeError, message: "entity.parent property must be typeof <number>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertEntity({ name: "myEntity", descriptors: 10 });
-    });
-    assert.is(error.message, "entity.descriptors must be a plainObject");
+    }, { instanceOf: TypeError, message: "entity.descriptors must be a plainObject" });
 });
 
 avaTest("assertEntity()", (assert) => {
@@ -90,52 +86,45 @@ avaTest("assertMIC() TypeError", (assert) => {
     const name = "myMIC";
     const entityId = 1;
     const unit = "unit";
-    let error = assert.throws(() => {
+    assert.throws(() => {
         assertMIC(10);
-    });
-    assert.is(error.message, "mic must be a plainObject");
+    }, { instanceOf: TypeError, message: "mic must be a plainObject" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertMIC({});
-    });
-    assert.is(error.message, "mic.name property must be typeof <string>");
-    error = assert.throws(() => {
+    }, { instanceOf: TypeError, message: "mic.name property must be typeof <string>" });
+
+    assert.throws(() => {
         assertMIC({ name: 10 });
-    });
-    assert.is(error.message, "mic.name property must be typeof <string>");
+    }, { instanceOf: TypeError, message: "mic.name property must be typeof <string>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertMIC({ name });
-    });
-    assert.is(error.message, "mic.entityId property must be typeof <number>");
-    error = assert.throws(() => {
+    }, { instanceOf: TypeError, message: "mic.entityId property must be typeof <number>" });
+
+    assert.throws(() => {
         assertMIC({ name, entityId: "test" });
-    });
-    assert.is(error.message, "mic.entityId property must be typeof <number>");
+    }, { instanceOf: TypeError, message: "mic.entityId property must be typeof <number>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertMIC({ name, entityId });
-    });
-    assert.is(error.message, "mic.unit property must be typeof <string>");
-    error = assert.throws(() => {
+    }, { instanceOf: TypeError, message: "mic.unit property must be typeof <string>" });
+
+    assert.throws(() => {
         assertMIC({ name, entityId, unit: 10 });
-    });
-    assert.is(error.message, "mic.unit property must be typeof <string>");
+    }, { instanceOf: TypeError, message: "mic.unit property must be typeof <string>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertMIC({ name, entityId, unit, interval: "test" });
-    });
-    assert.is(error.message, "mic.interval property must be typeof <number>");
+    }, { instanceOf: TypeError, message: "mic.interval property must be typeof <number>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertMIC({ name, entityId, unit, max: "test" });
-    });
-    assert.is(error.message, "mic.max property must be typeof <number>");
+    }, { instanceOf: TypeError, message: "mic.max property must be typeof <number>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertMIC({ name, entityId, unit, description: 10 });
-    });
-    assert.is(error.message, "mic.description property must be typeof <string>");
+    }, { instanceOf: TypeError, message: "mic.description property must be typeof <string>" });
 });
 
 avaTest("assertMIC()", (assert) => {
@@ -160,46 +149,41 @@ avaTest("assertAlarm() TypeError", (assert) => {
     const severity = 1;
     const entityId = 2;
 
-    let error = assert.throws(() => {
+    assert.throws(() => {
         assertAlarm(10);
-    });
-    assert.is(error.message, "alarm must be a plainObject");
+    }, { instanceOf: TypeError, message: "alarm must be a plainObject" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertAlarm({});
-    });
-    assert.is(error.message, "alarm.message property must be typeof <string>");
-    error = assert.throws(() => {
+    }, { instanceOf: TypeError, message: "alarm.message property must be typeof <string>" });
+
+    assert.throws(() => {
         assertAlarm({ message: 10 });
-    });
-    assert.is(error.message, "alarm.message property must be typeof <string>");
+    }, { instanceOf: TypeError, message: "alarm.message property must be typeof <string>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertAlarm({ message });
-    });
-    assert.is(error.message, "alarm.severity property must be typeof <number>");
-    error = assert.throws(() => {
+    }, { instanceOf: TypeError, message: "alarm.severity property must be typeof <number>" });
+
+    assert.throws(() => {
         assertAlarm({ message, severity: "test" });
-    });
-    assert.is(error.message, "alarm.severity property must be typeof <number>");
+    }, { instanceOf: TypeError, message: "alarm.severity property must be typeof <number>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertAlarm({ message, severity });
-    });
-    assert.is(error.message, "alarm.entityId property must be typeof <number>");
-    error = assert.throws(() => {
-        assertAlarm({ message, severity, entityId: "test" });
-    });
-    assert.is(error.message, "alarm.entityId property must be typeof <number>");
+    }, { instanceOf: TypeError, message: "alarm.entityId property must be typeof <number>" });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
+        assertAlarm({ message, severity, entityId: "test" });
+    }, { instanceOf: TypeError, message: "alarm.entityId property must be typeof <number>" });
+
+    assert.throws(() => {
         assertAlarm({ message, severity, entityId });
-    });
-    assert.is(error.message, "alarm.correlateKey property must be typeof <string>");
-    error = assert.throws(() => {
+    }, { instanceOf: TypeError, message: "alarm.correlateKey property must be typeof <string>" });
+
+    assert.throws(() => {
         assertAlarm({ message, severity, entityId, correlateKey: 10 });
-    });
-    assert.is(error.message, "alarm.correlateKey property must be typeof <string>");
+    }, { instanceOf: TypeError, message: "alarm.correlateKey property must be typeof <string>" });
 });
 
 
@@ -216,31 +200,14 @@ avaTest("assertAlarm()", (assert) => {
 });
 
 avaTest("assertCorrelateID() Error", (assert) => {
-
-    let error = assert.throws(() => {
+    const message = "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$";
+    assert.throws(() => {
         assertCorrelateID();
-    });
-    assert.is(error.message, "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$");
+    }, { instanceOf: TypeError, message });
 
-    error = assert.throws(() => {
+    assert.throws(() => {
         assertCorrelateID(10);
-    });
-    assert.is(error.message, "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$");
-
-    error = assert.throws(() => {
-        assertCorrelateID(true);
-    });
-    assert.is(error.message, "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$");
-
-    error = assert.throws(() => {
-        assertCorrelateID({});
-    });
-    assert.is(error.message, "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$");
-
-    error = assert.throws(() => {
-        assertCorrelateID([]);
-    });
-    assert.is(error.message, "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$");
+    }, { instanceOf: TypeError, message });
 });
 
 avaTest("assertCorrelateID()", (assert) => {
