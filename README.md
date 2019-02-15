@@ -21,60 +21,90 @@ $ yarn add @slimio/utils
 
 ## API
 
-### taggedString(chaines: string, ...keys: any[]): Clojure;
+<details><summary>taggedString(chaines: string, ...keys: any[]): Clojure</summary>
+<br />
+
 This method is inspired from Tagged Literal (look at the [MDN Documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Litt%C3%A9raux_gabarits))
 
-### createDirectory(path: string): void;
-Create a directory at the given path. This method trigger `fs.mkdir` but catch the **ENOENT** error if the directory exist.
-
-### assertEntity(entity: object): void;
-Valid an entity object properties
+Useful to build string templates:
 ```js
-const entity = {
+const { strictEqual } = require("assert");
+const tpl = taggedString`hello ${0}`;
+
+strictEqual(tpl("fraxken"), "hello fraxken");
+```
+
+Template properties can be either **index** or **key**:
+```js
+const { strictEqual } = require("assert");
+const tpl = taggedString`hello ${"name"}`;
+
+strictEqual(tpl({ name: "fraxken" }), "hello fraxken");
+```
+</details>
+
+<details><summary>createDirectory(path: string): void</summary>
+<br />
+
+Create a directory at the given path. This method trigger `fs.mkdir` but catch the **ENOENT** error if the directory exist.
+</details>
+
+<details><summary>assertEntity(entity: SlimIO.RawEntity): void</summary>
+<br />
+
+Assert an Entity Object.
+```js
+assertEntity({
     name: "myEntity",
     description: "desc",
     parent: 10,
     descriptors: {}
-};
-assertEntity(entity);
+});
 ```
+</details>
 
-### assertMIC(mic: object): void;
-Valid a Metric Identity Card object properties
+<details><summary>assertMIC(mic: SlimIO.RawIdentityCard): void</summary>
+<br />
 
+Assert an MicIdentityCard Object.
 ```js
-const MIC = {
+assertMIC({
     name: "myMIC",
     entityId: 1,
     unit: "unit",
     interval: 10,
     max: 100,
     description: "desc"
-};
-assertMIC(MIC);
+});
 ```
+</details>
 
-### assertAlarm(alarm: object): void;
-Valid an alarm object properties
+<details><summary>assertAlarm(alarm: SlimIO.RawAlarm): void</summary>
+<br />
 
+Assert an Alarm Object.
 ```js
-const alarm = {
+assertAlarm({
     message: "message",
     severity: 1,
     entityId: 2,
     correlateKey: "test_corrKey"
-};
-assertAlarm(alarm);
+});
 ```
+</details>
 
-### assertCorrelateID(CID: string): void;
-Valid a correlateID
+<details><summary>assertCorrelateID(CID: string): void</summary>
+<br />
 
+Assert a correlate id (Alarm correlate id).
 ```js
 assertCorrelateID("1#test_corrkey");
 ```
+</details>
 
-### privateProperty(target: object, propertyKey: string|symbol|number, value?: any): void
+<details><summary>privateProperty(target: object, propertyKey: string|symbol|number, value?: any): void</summary>
+<br />
+
 Define a private (**non-enumable**, **non-configurable**) property on the target.
 
 ```js
@@ -90,6 +120,7 @@ assert.throws(() => {
     delete obj.foo;
 }, { name: 'TypeError' });
 ```
+</details>
 
 ## License
 MIT
