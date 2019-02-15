@@ -1,16 +1,22 @@
 # Utils
+![V0.6.1](https://img.shields.io/badge/version-0.6.1-blue.svg)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/github/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
-![V1.0](https://img.shields.io/badge/version-0.6.1-blue.svg)
+![1DEP](https://img.shields.io/badge/Dependencies-1-yellow.svg)
 
 Slim.IO Utils. This package/project is dedicated to the SlimIO Stack (he features are added to this package to allow a better maintainability within several subprojects).
 
+## Requirements
+- Node.js v10 or higher
+
 ## Getting Started
 
-This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
 
 ```bash
-$ npm install @slimio/utils
+$ npm i @slimio/utils
+# or
+$ yarn add @slimio/utils
 ```
 
 ## API
@@ -68,17 +74,5 @@ Valid a correlateID
 assertCorrelateID("1#test_corrkey");
 ```
 
-## Project commands
-
-To generate the documentation run the following command:
-
-```bash
-npm run doc
-```
-
-To run tests and get coverage
-
-```bash
-npm run coverage
-npm run report
-```
+## License
+MIT
