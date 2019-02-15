@@ -74,5 +74,22 @@ Valid a correlateID
 assertCorrelateID("1#test_corrkey");
 ```
 
+### privateProperty(target: object, propertyKey: string|symbol|number, value?: any): void
+Define a private (**non-enumable**, **non-configurable**) property on the target.
+
+```js
+const assert = require("assert");
+
+const obj = {};
+privateProperty(obj, "foo", "bar");
+assert.deepEqual(Object.keys(obj), []);
+
+obj.foo = "world!";
+assert.strictEqual(obj.foo, "world!");
+assert.throws(() => {
+    delete obj.foo;
+}, { name: 'TypeError' });
+```
+
 ## License
 MIT
