@@ -12,7 +12,8 @@ const {
     assertEntity,
     assertMIC,
     assertAlarm,
-    assertCorrelateID
+    assertCorrelateID,
+    privateProperty
 } = require("../index");
 
 avaTest("taggedString", (assert) => {
@@ -213,4 +214,30 @@ avaTest("assertCorrelateID() Error", (assert) => {
 avaTest("assertCorrelateID()", (assert) => {
     assertCorrelateID("1#test_corrkey");
     assert.pass();
+});
+
+avaTest("privateProperty() must throw on Freezed Object", (assert) => {
+    const _o = Object.freeze({});
+    assert.throws(() => {
+        privateProperty(_o, "yo");
+    }, { instanceOf: Error, message: "Unable to define private property" });
+});
+
+avaTest("privateProperty() is non-enumerable", (assert) => {
+    const _o = {};
+    privateProperty(_o, "yo");
+    assert.deepEqual(Object.keys(_o), []);
+    assert.deepEqual(Reflect.ownKeys(_o), ["yo"]);
+});
+
+avaTest("privateProperty() is non-configurable (but writable)", (assert) => {
+    const _o = {};
+    privateProperty(_o, "yo");
+    assert.deepEqual(Reflect.ownKeys(_o), ["yo"]);
+    assert.throws(() => {
+        delete _o.yo;
+    }, { instanceOf: TypeError });
+
+    _o.yo = 10;
+    assert.is(_o.yo, 10);
 });
