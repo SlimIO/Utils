@@ -11,6 +11,7 @@ const is = require("@slimio/is");
 /**
  * @exports utils/taggedString
  * @method taggedString
+ * @memberof utils#
  * @desc Create a tagged String
  * @param {!String} chaines initial string
  * @param {any[]} cles string keys
@@ -42,6 +43,7 @@ function taggedString(chaines, ...cles) {
  *
  * @exports utils/createDirectory
  * @method createDirectory
+ * @memberof utils#
  * @desc overhead method of fs.mkdir (but will no throw an error if the directory already exist!).
  * @param {!String} dirPath directory path
  * @returns {void}
@@ -71,6 +73,7 @@ async function createDirectory(dirPath) {
  *
  * @exports utils/assertEntity
  * @method assertEntity
+ * @memberof utils#
  * @desc Valid an entity object properties
  * @param {!Object} entity Entity object
  * @returns {void}
@@ -109,6 +112,7 @@ function assertEntity(entity) {
  *
  * @exports utils/assertMIC
  * @method assertMIC
+ * @memberof utils#
  * @desc Valid a Metric Identity Card object properties
  * @param {!Object} mic Metric Identity Card object
  * @returns {void}
@@ -155,6 +159,7 @@ function assertMIC(mic) {
  *
  * @exports utils/assertAlarm
  * @method assertAlarm
+ * @memberof utils#
  * @desc Valid an alarm object properties
  * @param {!Object} alarm Alarm object
  * @returns {void}
@@ -193,6 +198,7 @@ function assertAlarm(alarm) {
  *
  * @exports utils/assertCorrelateID
  * @method assertCorrelateID
+ * @memberof utils#
  * @desc Valid a correlateID
  * @param {!String} CID CorrelateID
  * @returns {void}
@@ -208,6 +214,41 @@ function assertCorrelateID(CID) {
     }
 }
 
+/**
+ * @version 0.1.0
+ *
+ * @exports utils/privateProperty
+ * @method privateProperty
+ * @memberof utils#
+ * @desc Define a private (non-enumable, non-configurable) property on the target
+ * @param {!Object} target target object
+ * @param {!String | Symbol | Number} propertyKey The name of the property we want to define in target
+ * @param {*} [value=null] The property value
+ * @returns {void}
+ *
+ * @throws {Error}
+ *
+ * @example
+ * const SymID = Symbol("id");
+ * class User {
+ *     constructor() {
+ *         privateProperty(this, SymID, 1);
+ *     }
+ * }
+ */
+function privateProperty(target, propertyKey, value = null) {
+    const ok = Reflect.defineProperty(target, propertyKey, {
+        value,
+        enumerable: false,
+        configurable: false,
+        writable: true
+    });
+
+    if (!ok) {
+        throw new Error("Unable to define private property");
+    }
+}
+
 
 // Exports all utils functions
 module.exports = {
@@ -216,5 +257,6 @@ module.exports = {
     assertEntity,
     assertMIC,
     assertAlarm,
-    assertCorrelateID
+    assertCorrelateID,
+    privateProperty
 };
