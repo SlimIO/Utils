@@ -11,6 +11,7 @@ declare namespace Utils {
     export function assertMIC(mic: object): void;
     export function assertAlarm(alarm: object): void;
     export function assertCorrelateID(CID: string): void;
+    export function privateProperty(target: object, propertyKey: string|symbol|number, value: any): void;
 }
 
 export as namespace Utils;
