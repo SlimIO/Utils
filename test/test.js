@@ -41,7 +41,7 @@ avaTest("createDirectory (dirPath should be typeof string)", async(assert) => {
     });
 });
 
-avaTest("assertEntity() TypeError", (assert) => {
+avaTest("assertEntity() must throw TypeError on invalid payload", (assert) => {
     const name = "myEntity";
 
     assert.throws(() => {
@@ -69,22 +69,17 @@ avaTest("assertEntity() TypeError", (assert) => {
     }, { instanceOf: TypeError, message: "entity.descriptors must be a plainObject" });
 });
 
-avaTest("assertEntity()", (assert) => {
-    const entity = {
-        name: "myEntity"
-    };
+avaTest("assertEntity() must be ok", (assert) => {
+    const entity = { name: "myEntity" };
 
-    assertEntity(entity);
+    const ret = assertEntity(entity);
+    assert.is(ret, void 0);
 
-    Reflect.set(entity, "description", "desc");
-    Reflect.set(entity, "parent", 10);
-    Reflect.set(entity, "descriptors", {});
-
-    assertEntity(entity);
-    assert.pass();
+    const ret2 = assertEntity({ ...entity, description: "desc", parent: 10, descriptors: {} });
+    assert.is(ret2, void 0);
 });
 
-avaTest("assertMIC() TypeError", (assert) => {
+avaTest("assertMIC() must throw TypeError on invalid payload", (assert) => {
     const name = "myMIC";
     const entityId = 1;
     const unit = "unit";
@@ -129,24 +124,19 @@ avaTest("assertMIC() TypeError", (assert) => {
     }, { instanceOf: TypeError, message: "mic.description property must be typeof <string>" });
 });
 
-avaTest("assertMIC()", (assert) => {
+avaTest("assertMIC() must be ok", (assert) => {
     const MIC = {
-        name: "myMIC",
-        entityId: 1,
-        unit: "unit"
+        name: "myMIC", entityId: 1, unit: "unit"
     };
 
-    assertMIC(MIC);
+    const ret = assertMIC(MIC);
+    assert.is(ret, void 0);
 
-    Reflect.set(MIC, "interval", 10);
-    Reflect.set(MIC, "max", 10);
-    Reflect.set(MIC, "description", "desc");
-
-    assertMIC(MIC);
-    assert.pass();
+    const ret2 = assertMIC({ ...MIC, interval: 10, max: 10, description: "desc" });
+    assert.is(ret2, void 0);
 });
 
-avaTest("assertAlarm() TypeError", (assert) => {
+avaTest("assertAlarm() must throw TypeError on invalid payload", (assert) => {
     const message = "message";
     const severity = 1;
     const entityId = 2;
@@ -188,17 +178,14 @@ avaTest("assertAlarm() TypeError", (assert) => {
     }, { instanceOf: TypeError, message: "alarm.correlateKey property must be typeof <string>" });
 });
 
-
-avaTest("assertAlarm()", (assert) => {
-    const alarm = {
+avaTest("assertAlarm() must be ok", (assert) => {
+    const ret = assertAlarm({
         message: "message",
         severity: 1,
         entityId: 2,
         correlateKey: "test_corrKey"
-    };
-
-    assertAlarm(alarm);
-    assert.pass();
+    });
+    assert.is(ret, void 0);
 });
 
 avaTest("assertCorrelateID(null) must throw TypeError", (assert) => {
