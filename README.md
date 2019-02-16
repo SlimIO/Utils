@@ -1,5 +1,5 @@
 # Utils
-![V0.7.0](https://img.shields.io/badge/version-0.7.0-blue.svg)
+![V0.8.0](https://img.shields.io/badge/version-0.8.0-blue.svg)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/github/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![1DEP](https://img.shields.io/badge/Dependencies-1-yellow.svg)
