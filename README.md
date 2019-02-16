@@ -93,12 +93,21 @@ assertAlarm({
 ```
 </details>
 
-<details><summary>assertCorrelateID(CID: string): void</summary>
+<details><summary>assertCorrelateID(CID: SlimIO.CID): void</summary>
 <br />
 
 Assert a correlate id (Alarm correlate id).
 ```js
 assertCorrelateID("1#test_corrkey");
+```
+</details>
+
+<details><summary>assertCK(correlateKey: string): void</summary>
+<br />
+
+Assert a correlate key (Alarm correlate key).
+```js
+assertCK("test_corrkey");
 ```
 </details>
 
