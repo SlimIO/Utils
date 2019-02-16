@@ -201,20 +201,22 @@ avaTest("assertAlarm()", (assert) => {
     assert.pass();
 });
 
-avaTest("assertCorrelateID() Error", (assert) => {
+avaTest("assertCorrelateID(null) must throw TypeError", (assert) => {
+    assert.throws(() => {
+        assertCorrelateID(null);
+    }, { instanceOf: TypeError, message: "CID must be a string" });
+});
+
+avaTest("assertCorrelateID('1-hello_world') must be rejected by regex", (assert) => {
     const message = "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$";
     assert.throws(() => {
-        assertCorrelateID();
-    }, { instanceOf: Error, message });
-
-    assert.throws(() => {
-        assertCorrelateID(10);
+        assertCorrelateID("1-hello_world");
     }, { instanceOf: Error, message });
 });
 
-avaTest("assertCorrelateID()", (assert) => {
-    assertCorrelateID("1#test_corrkey");
-    assert.pass();
+avaTest("assertCorrelateID('1#test_corrkey') must be ok", (assert) => {
+    const ret = assertCorrelateID("1#test_corrkey");
+    assert.is(ret, void 0);
 });
 
 avaTest("assertCK(null) must throw TypeError", (assert) => {

@@ -203,12 +203,17 @@ function assertAlarm(alarm) {
  * @param {!String} CID CorrelateID
  * @returns {void}
  *
+ * @throws {TypeError}
  * @throws {Error}
  *
  * @example
  * assertCorrelateID("1#test_corrkey");
  */
 function assertCorrelateID(CID) {
+    if (typeof CID !== "string") {
+        throw new TypeError("CID must be a string");
+    }
+
     if (!/^[0-9]{1,8}#[a-z_]{1,14}$/.test(CID)) {
         throw new Error("Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$");
     }
