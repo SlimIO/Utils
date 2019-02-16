@@ -13,6 +13,7 @@ const {
     assertMIC,
     assertAlarm,
     assertCorrelateID,
+    assertCK,
     privateProperty
 } = require("../index");
 
@@ -214,6 +215,23 @@ avaTest("assertCorrelateID() Error", (assert) => {
 avaTest("assertCorrelateID()", (assert) => {
     assertCorrelateID("1#test_corrkey");
     assert.pass();
+});
+
+avaTest("assertCK(null) must throw TypeError", (assert) => {
+    assert.throws(() => {
+        assertCK(null);
+    }, { instanceOf: TypeError, message: "correlateKey must be a string" });
+});
+
+avaTest("assertCK('') must be rejected by regex", (assert) => {
+    assert.throws(() => {
+        assertCK("");
+    }, { instanceOf: Error, message: "Invalid correlateKey! A CK must respect the following Regex: ^[a-z_]{1,14}$" });
+});
+
+avaTest("assertCK('test_ck') is ok", (assert) => {
+    const ret = assertCK("test_ck");
+    assert.is(ret, void 0);
 });
 
 avaTest("privateProperty() must throw on Freezed Object", (assert) => {

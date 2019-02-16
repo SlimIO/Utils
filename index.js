@@ -224,12 +224,17 @@ function assertCorrelateID(CID) {
  * @param {!String} correlateKey correlateKey
  * @returns {void}
  *
+ * @throws {TypeError}
  * @throws {Error}
  *
  * @example
  * assertCK("test_corrkey");
  */
 function assertCK(correlateKey) {
+    if (typeof correlateKey !== "string") {
+        throw new TypeError("correlateKey must be a string");
+    }
+
     if (!/^[a-z_]{1,14}$/.test(correlateKey)) {
         throw new Error("Invalid correlateKey! A CK must respect the following Regex: ^[a-z_]{1,14}$");
     }
