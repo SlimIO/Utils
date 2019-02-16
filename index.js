@@ -203,7 +203,7 @@ function assertAlarm(alarm) {
  * @param {!String} CID CorrelateID
  * @returns {void}
  *
- * @throws {TypeError}
+ * @throws {Error}
  *
  * @example
  * assertCorrelateID("1#test_corrkey");
@@ -215,7 +215,28 @@ function assertCorrelateID(CID) {
 }
 
 /**
- * @version 0.1.0
+ * @version 0.8.0
+ *
+ * @exports utils/assertCK
+ * @method assertCK
+ * @memberof utils#
+ * @desc Validate a correlateKey
+ * @param {!String} correlateKey correlateKey
+ * @returns {void}
+ *
+ * @throws {Error}
+ *
+ * @example
+ * assertCK("test_corrkey");
+ */
+function assertCK(correlateKey) {
+    if (!/^[a-z_]{1,14}$/.test(correlateKey)) {
+        throw new Error("Invalid correlateKey! A CK must respect the following Regex: ^[a-z_]{1,14}$");
+    }
+}
+
+/**
+ * @version 0.7.0
  *
  * @exports utils/privateProperty
  * @method privateProperty
@@ -258,5 +279,6 @@ module.exports = {
     assertMIC,
     assertAlarm,
     assertCorrelateID,
+    assertCK,
     privateProperty
 };
