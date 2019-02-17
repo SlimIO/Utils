@@ -1,8 +1,9 @@
 # Utils
-![V0.8.0](https://img.shields.io/badge/version-0.8.0-blue.svg)
+![version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/SlimIO/Utils/master/package.json&query=$.version&label=Version)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/github/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![1DEP](https://img.shields.io/badge/Dependencies-1-yellow.svg)
+[![Build Status](https://travis-ci.com/SlimIO/Utils.svg?branch=master)](https://travis-ci.com/SlimIO/Utils)
 
 SlimIO Utils. This package has been created for internal usage (Features are added to the package to avoid spreading of similar functionalities across multiple projects).
 
