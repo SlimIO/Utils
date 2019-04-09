@@ -1,10 +1,5 @@
-/// <reference types="node" />
-/// <reference types="@types/node" />
 /// <reference types="@slimio/tsd" />
 
-/**
- * Utils namespace
- */
 declare namespace Utils {
     export function taggedString(str: string, ...keys: any[]): (...keys: any[]) => string;
     export function createDirectory(dirPath: string): void;
