@@ -215,7 +215,7 @@ function assertCorrelateID(CID) {
     }
 
     if (!/^[0-9]{1,8}#[a-z_]{1,35}$/.test(CID)) {
-        throw new Error("Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$");
+        throw new Error("Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,35}$");
     }
 }
 
@@ -241,7 +241,7 @@ function assertCK(correlateKey) {
     }
 
     if (!/^[a-z_]{1,35}$/.test(correlateKey)) {
-        throw new Error("Invalid correlateKey! A CK must respect the following Regex: ^[a-z_]{1,14}$");
+        throw new Error("Invalid correlateKey! A CK must respect the following Regex: ^[a-z_]{1,35}$");
     }
 }
 
