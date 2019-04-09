@@ -20,6 +20,9 @@ $ npm i @slimio/utils
 $ yarn add @slimio/utils
 ```
 
+## Usage example
+> TBC
+
 ## API
 
 <details><summary>taggedString(chaines: string, ...keys: any[]): Clojure</summary>
