@@ -100,7 +100,7 @@ assertAlarm({
 <details><summary>assertCorrelateID(CID: SlimIO.CID): void</summary>
 <br />
 
-Assert a correlate id (Alarm correlate id).
+Assert a correlate id (Alarm correlate id). A CID is the addition of a Alarm ID and a Correlate key. The maximum length of the CID is **44**.
 ```js
 assertCorrelateID("1#test_corrkey");
 ```
@@ -109,7 +109,7 @@ assertCorrelateID("1#test_corrkey");
 <details><summary>assertCK(correlateKey: string): void</summary>
 <br />
 
-Assert a correlate key (Alarm correlate key).
+Assert a correlate key (Alarm correlate key). The length of CK must be between **1** and **35**.
 ```js
 assertCK("test_corrkey");
 ```
