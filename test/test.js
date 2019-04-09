@@ -195,7 +195,7 @@ avaTest("assertCorrelateID(null) must throw TypeError", (assert) => {
 });
 
 avaTest("assertCorrelateID('1-hello_world') must be rejected by regex", (assert) => {
-    const message = "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,14}$";
+    const message = "Invalid CorrelateID! A CID must respect the following Regex: ^[0-9]{1,8}#[a-z_]{1,35}$";
     assert.throws(() => {
         assertCorrelateID("1-hello_world");
     }, { instanceOf: Error, message });
@@ -215,7 +215,7 @@ avaTest("assertCK(null) must throw TypeError", (assert) => {
 avaTest("assertCK('') must be rejected by regex", (assert) => {
     assert.throws(() => {
         assertCK("");
-    }, { instanceOf: Error, message: "Invalid correlateKey! A CK must respect the following Regex: ^[a-z_]{1,14}$" });
+    }, { instanceOf: Error, message: "Invalid correlateKey! A CK must respect the following Regex: ^[a-z_]{1,35}$" });
 });
 
 avaTest("assertCK('test_ck') is ok", (assert) => {
