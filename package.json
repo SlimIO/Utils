@@ -13,6 +13,10 @@
     "coverage": "nyc ava",
     "report": "nyc report --reporter=html"
   },
+  "keywords": [
+    "SlimIO",
+    "utils"
+  ],
   "husky": {
     "hooks": {
       "pre-push": "npm test",
