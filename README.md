@@ -135,5 +135,12 @@ assert.throws(() => {
 ```
 </details>
 
+## Dependencies
+
+|Name|Refactoring|Security Risk|Usage|
+|---|---|---|---|
+|[@slimio/is](https://github.com/SlimIO/is#readme)|Minor|Low|Type Checker|
+
+
 ## License
 MIT
