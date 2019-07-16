@@ -1,3 +1,5 @@
+"use strict";
+
 // Require NodeJS Dependencies
 const { mkdir } = require("fs").promises;
 
@@ -10,10 +12,10 @@ const is = require("@slimio/is");
 
 /**
  * @exports utils/taggedString
- * @method taggedString
+ * @function taggedString
  * @memberof utils#
- * @desc Create a tagged String
- * @param {!String} chaines initial string
+ * @description Create a tagged String
+ * @param {!string} chaines initial string
  * @param {any[]} cles string keys
  * @returns {Function} Return clojure function to build the final string
  *
@@ -42,10 +44,10 @@ function taggedString(chaines, ...cles) {
  * @version 0.3.0
  *
  * @exports utils/createDirectory
- * @method createDirectory
+ * @function createDirectory
  * @memberof utils#
- * @desc overhead method of fs.mkdir (but will no throw an error if the directory already exist!).
- * @param {!String} dirPath directory path
+ * @description overhead method of fs.mkdir (but will no throw an error if the directory already exist!).
+ * @param {!string} dirPath directory path
  * @returns {void}
  *
  * @throws {TypeError}
@@ -72,10 +74,10 @@ async function createDirectory(dirPath) {
  * @version 0.6.0
  *
  * @exports utils/assertEntity
- * @method assertEntity
+ * @function assertEntity
  * @memberof utils#
- * @desc Valid an entity object properties
- * @param {!Object} entity Entity object
+ * @description Valid an entity object properties
+ * @param {!object} entity Entity object
  * @returns {void}
  *
  * @throws {TypeError}
@@ -111,10 +113,10 @@ function assertEntity(entity) {
  * @version 0.6.0
  *
  * @exports utils/assertMIC
- * @method assertMIC
+ * @function assertMIC
  * @memberof utils#
- * @desc Valid a Metric Identity Card object properties
- * @param {!Object} mic Metric Identity Card object
+ * @description Valid a Metric Identity Card object properties
+ * @param {!object} mic Metric Identity Card object
  * @returns {void}
  *
  * @throws {TypeError}
@@ -158,10 +160,10 @@ function assertMIC(mic) {
  * @version 0.6.0
  *
  * @exports utils/assertAlarm
- * @method assertAlarm
+ * @function assertAlarm
  * @memberof utils#
- * @desc Valid an alarm object properties
- * @param {!Object} alarm Alarm object
+ * @description Valid an alarm object properties
+ * @param {!object} alarm Alarm object
  * @returns {void}
  *
  * @throws {TypeError}
@@ -197,10 +199,10 @@ function assertAlarm(alarm) {
  * @version 0.6.0
  *
  * @exports utils/assertCorrelateID
- * @method assertCorrelateID
+ * @function assertCorrelateID
  * @memberof utils#
- * @desc Valid a correlateID
- * @param {!String} CID CorrelateID
+ * @description Valid a correlateID
+ * @param {!string} CID CorrelateID
  * @returns {void}
  *
  * @throws {TypeError}
@@ -223,10 +225,10 @@ function assertCorrelateID(CID) {
  * @version 0.8.0
  *
  * @exports utils/assertCK
- * @method assertCK
+ * @function assertCK
  * @memberof utils#
- * @desc Validate a correlateKey
- * @param {!String} correlateKey correlateKey
+ * @description Validate a correlateKey
+ * @param {!string} correlateKey correlateKey
  * @returns {void}
  *
  * @throws {TypeError}
@@ -249,11 +251,11 @@ function assertCK(correlateKey) {
  * @version 0.7.0
  *
  * @exports utils/privateProperty
- * @method privateProperty
+ * @function privateProperty
  * @memberof utils#
- * @desc Define a private (non-enumable, non-configurable) property on the target
- * @param {!Object} target target object
- * @param {!String | Symbol | Number} propertyKey The name of the property we want to define in target
+ * @description Define a private (non-enumable, non-configurable) property on the target
+ * @param {!object} target target object
+ * @param {!string|Symbol|number} propertyKey The name of the property we want to define in target
  * @param {*} [value=null] The property value
  * @returns {void}
  *
