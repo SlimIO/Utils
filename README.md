@@ -11,7 +11,7 @@
 SlimIO Utils. This package has been created for internal usage (Features are added to the package to avoid spreading of similar functionalities across multiple projects).
 
 ## Requirements
-- Node.js v10 or higher
+- [Node.js](https://nodejs.org/en/) v10 or higher
 
 ## Getting Started
 
