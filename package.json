@@ -17,6 +17,10 @@
     "SlimIO",
     "utils"
   ],
+  "files": [
+      "index.js",
+      "index.d.ts"
+  ],
   "husky": {
     "hooks": {
       "pre-push": "cross-env eslint index.js && npm test",
