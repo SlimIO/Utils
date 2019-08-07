@@ -18,8 +18,9 @@
     "utils"
   ],
   "files": [
-      "index.js",
-      "index.d.ts"
+    "index.js",
+    "index.d.ts",
+    "src"
   ],
   "husky": {
     "hooks": {
