@@ -255,7 +255,7 @@ function assertCK(correlateKey) {
  * @memberof utils#
  * @description Define a private (non-enumable, non-configurable) property on the target
  * @param {!object} target target object
- * @param {!string|Symbol|number} propertyKey The name of the property we want to define in target
+ * @param {!string|symbol|number} propertyKey The name of the property we want to define in target
  * @param {*} [value=null] The property value
  * @returns {void}
  *
