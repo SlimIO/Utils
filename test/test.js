@@ -241,9 +241,8 @@ avaTest("privateProperty() is non-configurable (but writable)", (assert) => {
     const _o = {};
     privateProperty(_o, "yo");
     assert.deepEqual(Reflect.ownKeys(_o), ["yo"]);
-    assert.throws(() => {
-        delete _o.yo;
-    }, { instanceOf: TypeError });
+    delete _o.yo;
+    assert.deepEqual(Reflect.ownKeys(_o), ["yo"]);
 
     _o.yo = 10;
     assert.is(_o.yo, 10);
