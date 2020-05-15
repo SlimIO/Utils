@@ -6,7 +6,6 @@
 ![size](https://img.shields.io/bundlephobia/min/@slimio/utils.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/SlimIO/Utils/badge.svg?targetFile=package.json)](https://snyk.io/test/github/SlimIO/Utils?targetFile=package.json)
 [![Build Status](https://travis-ci.com/SlimIO/Utils.svg?branch=master)](https://travis-ci.com/SlimIO/Utils)
-[![Greenkeeper badge](https://badges.greenkeeper.io/SlimIO/Utils.svg)](https://greenkeeper.io/)
 
 SlimIO Utils. This package has been created for internal usage (Features are added to the package to avoid spreading of similar functionalities across multiple projects).
 
