@@ -11,7 +11,9 @@
     "test": "cross-env psp && nyc --reporter=lcov ava --verbose",
     "doc": "jsdoc -c ./jsdoc.json -r -R ./README.md -P ./package.json --verbose",
     "coverage": "codecov",
-    "report": "nyc report --reporter=html"
+    "report": "nyc report --reporter=html",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "SlimIO",
@@ -62,6 +64,8 @@
     "pkg-ok": "^2.3.1"
   },
   "dependencies": {
-    "@slimio/is": "^1.5.1"
-  }
+    "@slimio/is": "^1.5.1",
+    "snyk": "^1.339.3"
+  },
+  "snyk": true
 }
